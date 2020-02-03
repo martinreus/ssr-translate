@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { LocaleConfig } from './locale-lang-config';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       address: [''],
-      city: [''],
-      state: ['']
+      city: ['', [Validators.required]],
+      state: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(3)]]
     });
   }
 }

@@ -3,7 +3,11 @@
     "form": {
       "address": "Endereço",
       "city": "Cidade",
-      "state": "Estado"
+      "state": "Estado",
+      "submit": "Enviar"
     }
-  }
+  },
+  "required": "Campo mandatório",
+  "minlength": "Deve ter no mínimo {{ requiredLength }} caracteres",
+  "maxlength": "Deve ter no máximo {{ requiredLength }} caracteres"
 }

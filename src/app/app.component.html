@@ -8,13 +8,17 @@
       <td>
         <mat-form-field class="full-width">
           <input matInput [placeholder]="t('app.form.city')" formControlName="city" />
+          <mat-error *ngIf="form.controls.city.errors as errors">{{ errors | i18nErr: t }}</mat-error>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="full-width">
           <input matInput [placeholder]="t('app.form.state')" formControlName="state" />
+          <mat-error *ngIf="form.controls.state.errors as errors">{{ errors | i18nErr: t }}</mat-error>
         </mat-form-field>
       </td>
     </tr>
   </table>
+
+  <button type="submit" mat-button>{{ t('app.form.submit') }}</button>
 </form>

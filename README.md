@@ -1,6 +1,8 @@
 # SsrTranslate
 
-This project showcases the integration of Transloco I18N library, SSR (Server Side Rendering) and Forms validation with translations.
+This project showcases the integration of Transloco I18N library, SSR (Server Side Rendering), Angular Material and Forms validation with said translation library.
+
+Check out the tutorial explaining how everything was setup here -> [https://martinreus.github.io/angular-ssr-translations](https://martinreus.github.io/angular-ssr-translations/)
 
 ## Development server
 
@@ -10,14 +12,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Build for serving with express (supports SSR)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run build:ssr`
 
-## Running end-to-end tests
+## Build and run with Server-side rendering enabled
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `npm run build:ssr && npm run serve:ssr`. Navigate to `http://localhost:4000/`

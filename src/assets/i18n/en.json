@@ -3,7 +3,11 @@
     "form": {
       "address": "Address",
       "city": "City",
-      "state": "State"
+      "state": "State",
+      "submit": "Submit"
     }
-  }
+  },
+  "required": "Value required",
+  "minlength": "Must have at least {{ requiredLength }} characters",
+  "maxlength": "Cannot have more than {{ requiredLength }} characters"
 }
