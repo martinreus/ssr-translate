@@ -1,3 +1,9 @@
 {
-  "test": "isto é um teste"
+  "app": {
+    "form": {
+      "address": "Endereço",
+      "city": "Cidade",
+      "state": "Estado"
+    }
+  }
 }
