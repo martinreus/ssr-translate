@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslocoService } from '@ngneat/transloco';
+import { LocaleConfig } from './locale-lang-config';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ssr-translate';
+  constructor(transloco: TranslocoService, localeConf: LocaleConfig) {
+    transloco.setActiveLang(localeConf.language);
+  }
 }
