@@ -1,11 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
-import { LocaleConfig, browserLocaleFactory } from './locale-lang-config';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,12 +13,6 @@ import { LocaleConfig, browserLocaleFactory } from './locale-lang-config';
     HttpClientModule,
     TranslocoRootModule
   ],
-  bootstrap: [AppComponent],
-  providers: [
-    {
-      provide: LocaleConfig,
-      useFactory: browserLocaleFactory
-    }
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

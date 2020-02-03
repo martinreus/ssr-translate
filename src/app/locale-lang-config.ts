@@ -20,3 +20,25 @@ export const browserLocaleFactory: () => LocaleConfig = () => {
 
   return new LocaleConfig(language, locale);
 };
+
+export const serverLocaleFactory: (locale?: string) => () => LocaleConfig = (reqLocales?: string) => () => {
+  if (!reqLocales) {
+    return new LocaleConfig(DEFAULT_LANG, DEFAULT_LOCALE);
+  }
+
+  // try setting locale according to list of locales sent to us. Try finding the first one of the list - since
+  // this will probably the preferred client's language
+  const localeFound: string | undefined = reqLocales
+    .split(new RegExp(',|;'))
+    .find(reqLocale => SUPPORTED_LANGUAGES.find(lang => reqLocale.includes(lang.language)));
+
+  if (localeFound) {
+    // From the iteration above we only arrive here if a language was found (that's why the bang and tslint disable)
+    // tslint:disable-next-line: no-non-null-assertion
+    const foundLangauge = SUPPORTED_LANGUAGES.find(lang => localeFound.includes(lang.language))!;
+    const supportedLocale = foundLangauge.locales.find(locale => locale === localeFound);
+    return new LocaleConfig(foundLangauge.language, supportedLocale || foundLangauge.locales[0]);
+  } else {
+    return new LocaleConfig(DEFAULT_LANG, DEFAULT_LOCALE);
+  }
+};
